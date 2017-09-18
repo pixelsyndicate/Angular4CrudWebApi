@@ -1,0 +1,65 @@
+﻿<div class="panel panel-primary" *ngIf="product">
+    <div class="panel-heading">
+        <h1 class="panel-title">Product Information</h1>
+    </div>
+    <div class="panel-body">
+        <!-- 'messages[]' is a public property in the code-behind -->
+        <div class="row" *ngIf="messages && messages.length">
+            <div class="col-xs-12">
+                {{message.length}} errors
+                <div class="alert alert-warning">
+                    <ul>
+                        <li *ngFor="let msg of messages">
+                            {{msg}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- '[(ngModel)]' is a way to define the 'value' of an input -->
+        <div class="form-group">
+            <label form="productName">Product Name</label>
+            <input type="text" id="productName"
+                   class="form-control" 
+                   placeholder="Enter the Product Name" 
+                   title="Enter the Product Name" 
+                   [(ngModel)]="product.productName" 
+                   autofocus="autofocus" />
+        </div>
+        <div class="form-group">
+            <label form="introductionDate">Introduction Date</label>
+            <input type="text" 
+                   id="introductionDate" 
+                   class="form-control" 
+                   placeholder="Enter the Introduction Date" 
+                   title="Enter the Introduction Date" 
+                   [(ngModel)]="product.introductionDate" />
+        </div>
+        <div class="form-group">
+            <label form="price">Price</label>
+            <input type="number" 
+                   id="price"
+                   class="form-control" 
+                   placeholder="Enter the Price" 
+                   title="Enter the Price" 
+                   [(ngModel)]="product.price" />
+        </div>
+        <div class="form-group">
+            <label form="url">Url</label>
+            <input type="url" 
+                   id="url"
+                   class="form-control" 
+                   placeholder="Enter the URL" 
+                   title="Enter the URL" 
+                   [(ngModel)]="product.url" />
+        </div>
+        <div class="form-group">
+            <label form="summary">Summary</label>
+            <input type="text" class="form-control" placeholder="Enter the Summary" title="Enter the Summary" [(ngModel)]="product.summary" />
+        </div>
+    </div>
+    <div class="panel-footer">
+        <button class="btn btn-success" (click)="saveProduct()">Save</button>
+        <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-primary" (click)="add()">Add New Product</button>
+    </div>
+</div>
+<!-- 'products[]' is a public property in the code-behind -->
+<div class="row"
+     *ngIf="products && products.length">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <td>Edit</td>
+                        <td>Product Name</td>
+                        <td>Introduction Date</td>
+                        <td>URL</td>
+                        <td class="text-right">Price</td>
+                        <td>Delete</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td>
+                            <button class="btn btn-default btn-sm" (click)="selectProduct(product.productId)">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </button>
+                        </td>
+                        <td>
+                            {{product.productName}}<br />
+                            <small>{{product.summary}}</small>
+                        </td>
+                        <td>{{product.introductionDate | date}}</td>
+                        <td>{{product.url}}</td>
+                        <td class="text-right">{{product.price | currency:'USD':true }}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" (click)="deleteProduct(product.productId)">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 'messages[]' is a public property in the code-behind -->
+    <div class="row" *ngIf="messages && messages.length > 0">
+        <div class="col-xs-12">
+            {{message.length}} errors
+            <div class="alert alert-warning">
+                <ul>
+                    <li *ngFor="let msg of messages">{{msg}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

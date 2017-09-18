@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular QuickStart</title>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <script language="javascript" type="text/javascript">
+        System.import('main.js')
+            .catch(function (err) { console.error(err); });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <!--Begin adding my angular component placeholders-->
+        <my-app>Loading AppComponent content here ...</my-app>
+
+    </div>
+
+
+</body>
+</html>
