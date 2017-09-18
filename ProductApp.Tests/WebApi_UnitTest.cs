@@ -25,7 +25,7 @@ namespace ProductApp.Tests
             };
 
             // Act
-            IHttpActionResult result = controller.Get();// as OkNegotiatedContentResult<TransformJobDto>;
+            IHttpActionResult result = controller.Get(999);// as OkNegotiatedContentResult<TransformJobDto>;
 
             // Assert
             // get OK response?
@@ -53,8 +53,8 @@ namespace ProductApp.Tests
 
             // Assert
             // get OK response?
-            Assert.IsInstanceOfType(result, typeof(OkNegotiatedContentResult<List<Product>>));
-            var resultContent = result as OkNegotiatedContentResult<List<Product>>;
+            Assert.IsInstanceOfType(result, typeof(OkNegotiatedContentResult<IEnumerable<Product>>));
+            var resultContent = result as OkNegotiatedContentResult<IEnumerable<Product>>;
 
             // get object in OK response?
             Assert.IsNotNull(resultContent.Content);
@@ -66,7 +66,7 @@ namespace ProductApp.Tests
 
 
 
-            Debug.WriteLine($"got back {resultJob.Count} products...");
+            Debug.WriteLine($"got back {resultJob.Count()} products...");
 
 
         }

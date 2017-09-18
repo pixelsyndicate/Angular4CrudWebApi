@@ -21,7 +21,8 @@ namespace ProductApp.Controllers
 
             if (db.Products.Any())
             {
-                ret = Ok(db.Products);
+                var found = db.Products as IEnumerable<Product>;
+                ret = Ok(found);
             }
             else
             {
@@ -36,7 +37,7 @@ namespace ProductApp.Controllers
             IHttpActionResult ret;
             ProductDB db = new ProductDB();
             Product product = new Product();
-
+            // this will go null if not found.
             product = db.Products.Find(id);
             if (product != null)
             {
